@@ -8,14 +8,18 @@ if not filename:
 
 seq = open(filename, "r").read()
 
+# Use a dictionary to store counts. Could use seperate variables but this
+# saves a set of 'if' tests as we can reference the counts directly.
 baseCounts = { 'A' : 0, 'C' : 0, 'G' : 0, 'T' : 0}
 
 for base in seq:
 	if base in baseCounts:
-		baseCounts[base] = baseCounts[base] + 1
+		baseCounts[base] += 1
 	else:
 		sys.exit("invalid base letter found in file.")
 
+# Print the items by key, iterating is not a good idea as the order 
+# is not determinstic.
 print baseCounts['A'],
 print baseCounts['C'],
 print baseCounts['G'],
