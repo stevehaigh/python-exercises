@@ -10,7 +10,7 @@ with open(sys.argv[1], "r") as DNAfile:
     DNAseq = DNAfile.read()
 
     # reverse the sequence using the extended slice method. make it lower case too to aid in the base switching next.
-    rev = DNAseq[::-1].lower()
+    rev = str(reversed(DNAseq)).lower()
 
     # now convert a -> T, t -> A, c -> G, g -> C
 
